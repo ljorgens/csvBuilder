@@ -1,0 +1,120 @@
+.app {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  color: #1a1a2e;
+  margin-bottom: 4px;
+}
+
+.app-header p {
+  color: #666;
+  font-size: 1rem;
+}
+
+.steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.step-indicator {
+  padding: 8px 20px;
+  border-radius: 24px;
+  background: #e0e0e0;
+  color: #888;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.step-indicator.active {
+  background: #4361ee;
+  color: white;
+}
+
+.step-arrow {
+  color: #ccc;
+  font-size: 1.2rem;
+}
+
+.app-main {
+  background: white;
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Shared button styles */
+.btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background: #4361ee;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #3a56d4;
+}
+
+.btn-primary:disabled {
+  background: #b0b0b0;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  background: #e8e8e8;
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background: #d8d8d8;
+}
+
+.btn-danger {
+  background: #ff6b6b;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #ee5a5a;
+}
+
+.btn-success {
+  background: #2ecc71;
+  color: white;
+}
+
+.btn-success:hover {
+  background: #27ae60;
+}
+
+.button-row {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 24px;
+}

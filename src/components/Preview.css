@@ -1,0 +1,384 @@
+.preview {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.preview-header h2 {
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+}
+
+.preview-header p {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.source-breakdown {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.source-chip {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: #e8edff;
+  color: #4361ee;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.preview-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.preview-table th {
+  background: #f8f9fa;
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #555;
+  letter-spacing: 0.3px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.preview-table td {
+  padding: 8px 14px;
+  border-bottom: 1px solid #f0f0f0;
+  max-width: 250px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Row number column */
+.row-num-col {
+  width: 50px;
+  min-width: 50px;
+  text-align: center;
+  color: #999;
+  font-size: 0.75rem;
+  font-family: monospace;
+}
+
+/* Flash highlight when jumping to a row */
+@keyframes row-flash {
+  0%, 100% { outline: none; }
+  20%, 80% { outline: 3px solid #4361ee; outline-offset: -2px; }
+}
+
+.preview-table tbody tr.highlight-flash {
+  animation: row-flash 1.5s ease;
+}
+
+/* Row issue tooltip (fixed position, rendered outside table) */
+.row-tooltip {
+  position: fixed;
+  z-index: 100;
+  background: #1a1a2e;
+  color: #eee;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  white-space: normal;
+  min-width: 240px;
+  max-width: 400px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+.tooltip-flag {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  line-height: 1.5;
+}
+
+.tooltip-severity {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 1px 5px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.tooltip-severity.high { background: #c0392b; color: white; }
+.tooltip-severity.medium { background: #e67e22; color: white; }
+.tooltip-severity.low { background: #4361ee; color: white; }
+.tooltip-severity.duplicate { background: #8e44ad; color: white; }
+.tooltip-severity.similar { background: #e67e22; color: white; }
+
+.preview-table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.preview-table tbody tr.duplicate-row {
+  background: #fff3f3;
+}
+
+.preview-table tbody tr.duplicate-row:hover {
+  background: #ffe8e8;
+}
+
+/* Bad data flagged row highlights */
+.preview-table tbody tr.flagged-high {
+  background: #ffe0e0;
+}
+
+.preview-table tbody tr.flagged-high:hover {
+  background: #ffd0d0;
+}
+
+.preview-table tbody tr.flagged-medium {
+  background: #fff5d4;
+}
+
+.preview-table tbody tr.flagged-medium:hover {
+  background: #ffecb8;
+}
+
+.preview-table tbody tr.flagged-low {
+  background: #e8edff;
+}
+
+.preview-table tbody tr.flagged-low:hover {
+  background: #dce3ff;
+}
+
+/* Pattern Finder */
+.pattern-finder {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 16px;
+  background: #fafafa;
+}
+
+.pattern-header h3 {
+  font-size: 1rem;
+  margin: 0 0 4px 0;
+}
+
+.pattern-hint {
+  color: #888;
+  font-size: 0.8rem;
+  margin: 0 0 12px 0;
+}
+
+.pattern-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pattern-seed-count {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #8e44ad;
+}
+
+.pattern-result-count {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #e67e22;
+}
+
+.pattern-empty {
+  color: #aaa;
+  font-size: 0.8rem;
+  margin: 0;
+  font-style: italic;
+}
+
+.pattern-profile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.pattern-profile-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #555;
+}
+
+.pattern-trait {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background: #f0e8ff;
+  color: #7d3c98;
+}
+
+/* Seed & similar row highlights */
+.preview-table tbody tr.seed-row {
+  background: #f0e8ff;
+}
+
+.preview-table tbody tr.seed-row:hover {
+  background: #e4d8ff;
+}
+
+.preview-table tbody tr.similar-row {
+  background: #fff0e8;
+}
+
+.preview-table tbody tr.similar-row:hover {
+  background: #ffe4d4;
+}
+
+/* Seed checkbox column */
+.seed-col {
+  width: 32px;
+  min-width: 32px;
+  text-align: center;
+}
+
+.seed-col input[type="checkbox"] {
+  accent-color: #8e44ad;
+  cursor: pointer;
+}
+
+/* Table search */
+.table-search {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-input {
+  padding: 8px 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  width: 260px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.search-input:focus {
+  border-color: #4361ee;
+}
+
+.search-count {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* Detect Bad Data button */
+.detect-bad-data-btn {
+  align-self: flex-start;
+}
+
+/* Empty columns toggle */
+.empty-columns-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #555;
+  cursor: pointer;
+  user-select: none;
+}
+
+.empty-columns-toggle input {
+  accent-color: #4361ee;
+}
+
+/* Duplicate Detection */
+.duplicate-detection {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 16px;
+  background: #fafafa;
+}
+
+.duplicate-header h3 {
+  font-size: 1rem;
+  margin: 0 0 4px 0;
+}
+
+.duplicate-hint {
+  color: #888;
+  font-size: 0.8rem;
+  margin: 0 0 12px 0;
+}
+
+.key-column-selector {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.key-column-chip {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.key-column-chip input {
+  display: none;
+}
+
+.key-column-chip span {
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: #e8e8e8;
+  color: #555;
+  transition: all 0.15s;
+  user-select: none;
+}
+
+.key-column-chip span.active {
+  background: #4361ee;
+  color: white;
+}
+
+.key-column-chip span:hover {
+  background: #d0d0d0;
+}
+
+.key-column-chip span.active:hover {
+  background: #3a56d4;
+}
+
+.duplicate-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.duplicate-count {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 500;
+}

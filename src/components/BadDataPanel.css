@@ -1,0 +1,240 @@
+.bad-data-panel {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bad-data-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  background: #f8f9fa;
+  cursor: pointer;
+  user-select: none;
+}
+
+.bad-data-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.bad-data-counts {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bad-data-total {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #c0392b;
+}
+
+.bad-data-clean {
+  color: #27ae60;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.bad-data-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.bad-data-section h4 {
+  font-size: 0.8rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 8px 0;
+}
+
+/* Column type badges */
+.column-types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.type-badge {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.type-badge.type-email { background: #e8edff; color: #4361ee; }
+.type-badge.type-phone { background: #fff3d4; color: #b87a00; }
+.type-badge.type-name { background: #e8fff0; color: #1e8449; }
+.type-badge.type-url { background: #f0e8ff; color: #7d3c98; }
+.type-badge.type-company { background: #fff0e8; color: #a04000; }
+.type-badge.type-boolean { background: #e0f7fa; color: #00838f; }
+.type-badge.type-datetime { background: #f3e5f5; color: #6a1b9a; }
+.type-badge.type-categorical { background: #fce4ec; color: #ad1457; }
+.type-badge.type-text { background: #f0f0f0; color: #555; }
+
+/* Rule toggles */
+.rules-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+@media (max-width: 640px) {
+  .rules-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.rule-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.rule-toggle input {
+  accent-color: #4361ee;
+  flex-shrink: 0;
+}
+
+/* Actions row */
+.bad-data-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Severity filter tabs */
+.severity-filters {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.severity-filter-btn {
+  padding: 5px 14px;
+  border: 1px solid #e0e0e0;
+  border-radius: 16px;
+  background: white;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: #555;
+  transition: all 0.15s;
+}
+
+.severity-filter-btn:hover {
+  border-color: #999;
+}
+
+.severity-filter-btn.active {
+  background: #333;
+  color: white;
+  border-color: #333;
+}
+
+.severity-filter-btn.active.sev-high {
+  background: #c0392b;
+  border-color: #c0392b;
+}
+
+.severity-filter-btn.active.sev-medium {
+  background: #e67e22;
+  border-color: #e67e22;
+}
+
+.severity-filter-btn.active.sev-low {
+  background: #4361ee;
+  border-color: #4361ee;
+}
+
+/* Flagged row details */
+.flagged-details {
+  max-height: 320px;
+  overflow-y: auto;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+}
+
+.flagged-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 12px;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 0.8rem;
+}
+
+.flagged-row:last-child {
+  border-bottom: none;
+}
+
+.flagged-row.severity-high { background: #fff5f5; }
+.flagged-row.severity-medium { background: #fffcf5; }
+
+.flagged-row-num {
+  font-weight: 600;
+  font-family: monospace;
+  white-space: nowrap;
+  min-width: 56px;
+}
+
+.flagged-row-num.clickable {
+  color: #4361ee;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.15s;
+}
+
+.flagged-row-num.clickable:hover {
+  text-decoration-color: #4361ee;
+}
+
+.flagged-reasons {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.flagged-reason {
+  color: #666;
+  line-height: 1.4;
+}
+
+/* Per-row action buttons */
+.flagged-actions {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.btn-xs {
+  padding: 2px 8px !important;
+  font-size: 0.7rem !important;
+  border-radius: 4px;
+}
+
+.flagged-row.row-removed {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.flagged-more {
+  text-align: center;
+  color: #999;
+  font-size: 0.8rem;
+  padding: 8px;
+  margin: 0;
+}
